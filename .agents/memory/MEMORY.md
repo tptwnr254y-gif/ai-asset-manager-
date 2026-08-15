@@ -1,0 +1,1 @@
+- [API 없는 MVP 전략](butler-local-first.md) — BUTLER 첫 MVP는 로컬 저장과 준비된 응답으로 핵심 흐름을 제공하고 AI API는 후속 연결로 남긴다.
