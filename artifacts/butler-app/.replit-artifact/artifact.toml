@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "BUTLER AI"
+description = "한국어로 대화하며 일정, 공부, 식사, 수면, 컨디션을 함께 관리하는 AI 집사 생활관리 앱입니다. 사용자는 네 가지 집사 중 하나를 선택하고 자연어로 하루를 맡길 수 있습니다."
+version = "1.0.0"
+id = "artifacts/butler-app"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24953
+
+[services.development]
+run = "pnpm --filter @workspace/butler-app run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/butler-app", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/butler-app/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24953"
+BASE_PATH = "/"
