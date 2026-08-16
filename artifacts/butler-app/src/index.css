@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -49,7 +50,7 @@
   --sidebar-foreground: 39 30% 92%;
   --sidebar-border: 228 20% 27%;
   --radius: 0.8rem;
-  --app-font-sans: 'Noto Sans KR', sans-serif;
+  --app-font-sans: 'Pretendard', 'Noto Sans KR', sans-serif;
   --app-font-serif: 'Noto Serif KR', serif;
   --app-font-display: 'Cormorant Garamond', 'Noto Serif KR', serif;
 }
@@ -76,6 +77,38 @@
   --sidebar-foreground: 39 30% 92%;
   --sidebar-border: 228 20% 22%;
 }
+
+/* LIVI residence system: each route is treated as a room in one connected home. */
+.livi-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid hsl(var(--accent) / .55); border-radius: 50%; color: hsl(var(--accent)); }
+.livi-mark-dark { background: hsl(var(--primary)); }
+.livi-mark-small { width: 30px; height: 30px; }
+.livi-residence { position: relative; isolation: isolate; overflow: hidden; background: hsl(35 29% 91%); }
+.livi-residence::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .9; background: linear-gradient(90deg, hsl(34 28% 86% / .76), transparent 42%), linear-gradient(180deg, transparent 66%, hsl(30 28% 71% / .22)); }
+.livi-residence::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 30%; z-index: -1; pointer-events: none; opacity: .42; background: repeating-linear-gradient(88deg, transparent 0 74px, hsl(28 26% 53% / .12) 75px 77px); transform: perspective(400px) rotateX(55deg); transform-origin: bottom; }
+.time-morning::before { background: linear-gradient(112deg, hsl(36 75% 72% / .36), transparent 38%), linear-gradient(180deg, transparent 62%, hsl(30 29% 65% / .18)); }
+.time-day::before { background: linear-gradient(112deg, hsl(42 56% 90% / .5), transparent 38%), linear-gradient(180deg, transparent 62%, hsl(30 29% 65% / .18)); }
+.time-evening::before { background: linear-gradient(112deg, hsl(20 47% 61% / .3), transparent 44%), linear-gradient(180deg, hsl(226 25% 30% / .08), transparent 64%); }
+.time-night::before { background: linear-gradient(112deg, hsl(224 30% 20% / .35), transparent 44%), linear-gradient(180deg, hsl(229 28% 17% / .22), transparent 66%); }
+.room-living-room::after { background: repeating-linear-gradient(88deg, transparent 0 74px, hsl(28 26% 53% / .12) 75px 77px); }
+.room-living-room .shell-main::before { content: ''; display: block; position: absolute; top: 72px; right: 4vw; width: min(42vw, 610px); height: 23vh; min-height: 170px; border: 10px solid hsl(29 22% 30% / .66); border-bottom-width: 24px; background: linear-gradient(180deg, hsl(205 46% 70% / .58) 0 57%, hsl(190 44% 51% / .66) 58% 73%, hsl(34 25% 62% / .78) 74%); box-shadow: inset 0 0 0 2px hsl(42 37% 96% / .42), 0 20px 42px hsl(230 26% 17% / .14); pointer-events: none; z-index: -1; }
+.room-living-room .shell-main::after { content: ''; position: absolute; top: 205px; right: calc(4vw + 8%); width: min(18vw, 250px); height: 72px; border-top: 3px solid hsl(42 37% 96% / .56); box-shadow: 0 26px 0 hsl(42 37% 96% / .28), 0 52px 0 hsl(42 37% 96% / .14); transform: skewX(-16deg); pointer-events: none; z-index: -1; }
+.room-study::before { background: linear-gradient(90deg, hsl(27 30% 73% / .2), transparent 34%), repeating-linear-gradient(90deg, transparent 0 120px, hsl(28 22% 39% / .08) 121px 123px); }
+.room-dining::before { background: radial-gradient(circle at 76% 12%, hsl(40 66% 86% / .6), transparent 22%), linear-gradient(90deg, hsl(28 31% 69% / .18), transparent 42%); }
+.room-lounge::before { background: linear-gradient(90deg, hsl(28 25% 64% / .24), transparent 34%), radial-gradient(circle at 76% 16%, hsl(37 53% 78% / .32), transparent 25%); }
+.room-library::before { background: repeating-linear-gradient(90deg, hsl(28 26% 42% / .07) 0 18px, transparent 19px 82px), linear-gradient(90deg, hsl(25 28% 60% / .2), transparent 42%); }
+.room-hall::before { background: linear-gradient(110deg, hsl(41 47% 82% / .26), transparent 42%); }
+.livi-residence .shell-sidebar, .livi-residence header, .livi-residence .shell-main { position: relative; z-index: 1; }
+.livi-residence .shell-sidebar { background: hsl(28 26% 21% / .94); border-right: 1px solid hsl(38 31% 66% / .18); }
+.livi-residence header { background: hsl(42 37% 96% / .58); backdrop-filter: blur(12px); }
+.livi-residence .surface { background: hsl(42 37% 97% / .78); border-color: hsl(32 24% 65% / .26); box-shadow: 0 10px 28px hsl(29 27% 31% / .08); border-radius: 1.15rem; backdrop-filter: blur(10px); }
+.livi-residence .surface-soft { background: hsl(35 31% 90% / .7); border-color: hsl(32 24% 65% / .22); }
+.livi-residence .btn-primary { border-radius: .6rem; background: hsl(28 26% 21%); color: hsl(42 37% 96%); }
+.livi-residence .btn-accent { border-radius: .6rem; background: hsl(37 42% 58%); color: hsl(28 26% 18%); }
+.livi-residence .btn-quiet { border-radius: .6rem; }
+.livi-residence .icon-btn { border-radius: .6rem; background: hsl(42 37% 96% / .56); }
+.livi-residence .field { border-radius: .6rem; background: hsl(42 37% 98% / .7); }
+.room-console { border-top: 3px solid hsl(37 42% 58% / .7); }
+.hero-ink { background: linear-gradient(110deg, hsl(28 27% 22%), hsl(218 26% 28%)); }
 
 * { box-sizing: border-box; }
 html { min-width: 320px; background: hsl(var(--background)); }
